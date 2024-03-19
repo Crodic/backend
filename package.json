@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Create and Design by Crodic Crystal",
     "main": "src/server.js",
+    "engines": {
+        "node": ">=16.20.1"
+    },
     "scripts": {
         "dev": "nodemon src/server.js",
         "start": "node src/server.js"
