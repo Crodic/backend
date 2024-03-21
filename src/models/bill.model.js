@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const BillSchema = new Schema({
@@ -22,7 +22,9 @@ const BillSchema = new Schema({
         district: { name: { type: String, required: [true, 'Vui lòng cung cấp quận, huyện'] }, code: Number },
         ward: { name: { type: String, required: [true, 'Vui lòng cung cấp phường, xã'] }, code: Number },
     },
+	phone: String,
     payment: { type: String, enum: ['ONLINE', 'OFFLINE'], default: 'OFFLINE' },
+    status: { type: String, enum: ['Waiting', 'Rejected', 'Successfully'], default: 'Waiting' },
 });
 
 const BILL = mongoose.model('bill', BillSchema);

@@ -4,5 +4,6 @@ const authMiddleware = require('../middleware/auth.middleware');
 const billController = require('../controllers/bill.controller');
 
 router.post('/', authMiddleware.auth, billController.create);
+router.get('/', authMiddleware.auth, billController.getBillByUser);
 
 module.exports = router;

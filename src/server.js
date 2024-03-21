@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('common'));
 app.use(
     cors({
-        origin: ['*'],
+        origin: ['http://localhost:3000', "https://nhom6-crodic.vercel.app/"],
         credentials: true,
     })
 );

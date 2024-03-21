@@ -1,4 +1,4 @@
-const createHttpError = require('http-errors');
+﻿const createHttpError = require('http-errors');
 const PRODUCT = require('../models/product.model');
 const { paginate } = require('../utils/var');
 const cloudinary = require('cloudinary').v2;
@@ -67,6 +67,18 @@ class ProductService {
                     total,
                     totalPage: Math.ceil(total / limit),
                 },
+            };
+        } catch (error) {
+            throw error;
+        }
+    }
+    async deleteProduct(req) {
+        try {
+            const { id } = req.params;
+            await PRODUCT.findByIdAndDelete(id);
+            return {
+                status: 201,
+                message: 'Xoá sản phẩm thành công',
             };
         } catch (error) {
             throw error;

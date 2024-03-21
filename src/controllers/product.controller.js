@@ -1,4 +1,4 @@
-const { create, getById, getAllProduct } = require('../services/product.service');
+const { create, getById, getAllProduct, deleteProduct } = require('../services/product.service');
 
 class ProductController {
     async create(req, res, next) {
@@ -22,6 +22,15 @@ class ProductController {
     async getAll(req, res, next) {
         try {
             const json = await getAllProduct(req);
+            return res.status(json.status).json(json);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async delete(req, res, next) {
+        try {
+            const json = await deleteProduct(req);
             return res.status(json.status).json(json);
         } catch (error) {
             next(error);

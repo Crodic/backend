@@ -7,6 +7,7 @@ class AuthService {
     async register(req) {
         try {
             const { firstname, lastname, email, password, phone } = req.body;
+            console.log({ lastname });
             if (!firstname) throw createHttpError(400, 'Thiếu giá trị firstname');
             if (!lastname) throw createHttpError(400, 'Thiếu giá trị lastname');
             if (!email) throw createHttpError(400, 'Thiếu giá trị email');
@@ -43,7 +44,7 @@ class AuthService {
                         googleId,
                         provider: 'google',
                         firstname: body?.firstname || null,
-                        firstname: body?.lastname || null,
+                        lastname: body?.lastname || null,
                     });
                 }
                 const accessToken = generateAccessToken({

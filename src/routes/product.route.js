@@ -21,5 +21,6 @@ router.post(
 
 router.get('/', productController.getAll);
 router.get('/:id', productController.getById);
+router.delete('/:id', authMiddleware.auth, authMiddleware.checkRoleAdmin, productController.delete);
 
 module.exports = router;
